@@ -100,17 +100,18 @@ class _PdfGeneratotGalleryState extends State<PdfGeneratotGallery> {
 
   @override
   Widget build(BuildContext context) {
+    final textStyle = Theme.of(context).textTheme.headline5;
     var appBar = AppBar(
       backgroundColor: Colors.transparent,
       elevation: 0,
       automaticallyImplyLeading: true,
       title: Row(
         children: [
-          if (files.isNotEmpty) Text(itemsTitle),
+          if (files.isNotEmpty) Text(itemsTitle,style: textStyle),
           if (files.isEmpty)
             Text(widget.labelsConfig[
                     ScannerLabelsConfig.PDF_GALLERY_EMPTY_TITLE] ??
-                "PDF Pages")
+                "PDF Pages", style: textStyle)
         ],
       ),
     );
@@ -203,7 +204,7 @@ class _PdfGeneratotGalleryState extends State<PdfGeneratotGallery> {
                   if (files.isNotEmpty)
                     Expanded(
                         child: _mainControl(context,
-                            color: Colors.blue,
+                            color: Theme.of(context).colorScheme.primary,
                             icon: Icons.check,
                             title: widget.labelsConfig[ScannerLabelsConfig
                                     .PDF_GALLERY_DONE_LABEL] ??
@@ -216,7 +217,7 @@ class _PdfGeneratotGalleryState extends State<PdfGeneratotGallery> {
                   Expanded(
                       child: _mainControl(context,
                           color:
-                              files.isEmpty ? Colors.blue : Colors.cyanAccent,
+                              files.isEmpty ? Theme.of(context).colorScheme.primary : Theme.of(context).colorScheme.secondary,
                           icon: Icons.add_a_photo,
                           textColor:
                               files.isEmpty ? Colors.white : Colors.black,
