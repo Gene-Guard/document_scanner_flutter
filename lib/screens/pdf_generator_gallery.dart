@@ -105,6 +105,7 @@ class _PdfGeneratotGalleryState extends State<PdfGeneratotGallery> {
       backgroundColor: Colors.transparent,
       elevation: 0,
       automaticallyImplyLeading: true,
+      iconTheme: IconThemeData(color: Theme.of(context).textTheme.bodyText1?.color),
       title: Row(
         children: [
           if (files.isNotEmpty) Text(itemsTitle,style: textStyle),
